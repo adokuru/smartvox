@@ -16,11 +16,14 @@ $(document).ready(function() {
      });
      $('#dataoperator').on('change', function(){
         var dataoperator = this.value;
-        alert( this.value );
+    
          $.ajax({
             type: "POST",
             url: 'api/baxi.php',
-            data: dataoperator,
+            data: { 
+            id: 1, 
+            dataoperator: dataoperator
+           },
             dataType: "json",
             success: function(response) {
             console.log(response);
