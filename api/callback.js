@@ -15,7 +15,7 @@ $(document).ready(function() {
        });
      });
      $('#dataoperator').on('change', 'select', function(){
-        var dataoperator = $('#dthRechargeBill').serializeArray();
+        var dataoperator = $('#dataoperator').serializeArray();
          $.ajax({
             type: "POST",
             url: 'api/baxi.php',
