@@ -27,7 +27,11 @@ $(document).ready(function() {
             dataType: "json",
             success: function(response) {
             console.log(response);
+            for (i = 0; i < response.data.length; i++) {
+            option = $("<option/>", { value: response.data.name[i], html: response.data.name[i] });
+            $("#DTHamount").append(option);
             }
+        }
     });
 });
      $body = $("body");
