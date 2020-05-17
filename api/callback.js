@@ -14,8 +14,9 @@ $(document).ready(function() {
 			}
        });
      });
-     $('#dataoperator').on('change', 'select', function(){
-        var dataoperator = $('#dataoperator').serializeArray();
+     $('#dataoperator').on('change', function(){
+        var dataoperator = this.value;
+        alert( this.value );
          $.ajax({
             type: "POST",
             url: 'api/baxi.php',
