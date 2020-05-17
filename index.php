@@ -175,10 +175,7 @@
                   <div class="col-md-6 col-lg-3 form-group"> 
                     <select class="custom-select" id="DTHamount" name="DTHamount" required="">
                       <option value="">Select Your Data Amount</option>
-                      <option value="airtel">AIRTEL</option>
-                      <option value="glo">GLO</option>
-                      <option value="mtn">MTN</option>
-                      <option value="9mobile">9 Mobile</option>
+                      <option value="100">100</option>>
                     </select>
                   </div>
                   <div class="col-md-6 col-lg-2 form-group">

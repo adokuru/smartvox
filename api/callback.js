@@ -15,7 +15,7 @@ $(document).ready(function() {
        });
      });
      $('#dataoperator').on('change', 'select', function(){
-        var dataoperator = $('#form_stadt_kanton').serializeArray();
+        var dataoperator = $('#dthRechargeBill').serializeArray();
          $.ajax({
             type: "POST",
             url: 'api/baxi.php',
