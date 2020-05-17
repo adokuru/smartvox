@@ -161,21 +161,20 @@
                 <div class="form-row">
                   <div class="col-md-4 col-lg-3 form-group">
                     <select class="custom-select" id="dataoperator" name="dataoperator" required="">
-                      <option value="">Select Your Operator</option>
+                      <option value="" disabled selected>Select Your Operator</option>
                       <option value="airtel">AIRTEL</option>
                       <option value="glo">GLO</option>
                       <option value="mtn">MTN</option>
                       <option value="9mobile">9 Mobile</option>
                     </select>
                   </div>
-                 <input type="hidden" class="form-control" data-bv-field="number" id="cardNumber" required placeholder="select a plan">
+                 <input type="hidden" class="form-control" data-bv-field="number" id="datacode" name="datacode" required placeholder="select a plan">
                   <div class="col-md-6 col-lg-4 form-group">
-                    <input type="text" class="form-control" data-bv-field="number" id="dataNumber" required placeholder="Enter Your Phone Number">
+                    <input type="text" class="form-control" data-bv-field="number" id="dataNumber" name="dataNumber" required placeholder="Enter Your Phone Number">
                   </div>
                   <div class="col-md-6 col-lg-3 form-group"> 
                     <select class="custom-select" id="DTHamount" name="DTHamount" required="">
-                      <option value="">Select Your Data Amount</option>
-                      <option value="100">100</option>>
+                      <option disabled selected>Select Your Data Amount</option>
                     </select>
                   </div>
                   <div class="col-md-6 col-lg-2 form-group">
