@@ -7,19 +7,42 @@ $(document).ready(function() {
             url: 'api/elect.php',
             data: $('#electricityBill').serialize(),
             dataType: "json",
+            error: function(xhr, status, error) {
+                alert(xhr.responseText);
+            },
             success: function(response) {
-                console.log(response);
-                swal({
+                 console.log(response.code);
+                 if (response.code === 200) {
+                    if (response.data.name === "") {
+                        console.log(response);
+                        swal({
+                          icon: 'error',
+                          title: 'Oops... Something went wrong',
+                          text: 'Confirm your Meter Number!',
+                          footer: '<a href>Why do I have this issue?</a>'
+                        })
+                    }else{
+                    swal({
                     title: response.message, 
                     text: 'Account Name = ' + response.data.name, 
                     icon: response.status,
                     timer: 3000,
                     buttons: false,
+                    });
 
-                });
-
-                $('#electamount').removeAttr('disabled');
-                }
+                    $('#electamount').removeAttr('disabled');  
+                    }
+                   
+                    }else{
+                        console.log(response);
+                         swal({
+                              icon: 'error',
+                              title: 'Oops...',
+                              text: 'Something went wrong! Try again'
+                            })
+                    }
+                 }
+                
             
         })
         
