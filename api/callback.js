@@ -21,6 +21,7 @@ $(document).ready(function() {
                           text: 'Confirm your Meter Number!',
                           footer: '<a href>Why do I have this issue?</a>'
                         })
+                        $('#electamount').attr('disabled');
                     }else{
                     swal({
                     title: response.message, 
@@ -28,9 +29,7 @@ $(document).ready(function() {
                     icon: response.status,
                     timer: 3000,
                     buttons: false,
-                    });
-
-                    $('#electamount').removeAttr('disabled');  
+                    });$('#electamount').removeAttr('disabled'); 
                     }
                    
                     }else{
@@ -40,6 +39,7 @@ $(document).ready(function() {
                               title: 'Oops...',
                               text: 'Something went wrong! Try again'
                             })
+                         $('#electamount').attr('disabled');
                     }
                  }
                 
