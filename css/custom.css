@@ -36,3 +36,6 @@ body.loading .modal {
 body.loading .modal {
     display: block;
 }
+.form-control-feedback{
+  display: none;
+}

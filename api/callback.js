@@ -1,5 +1,70 @@
 
 $(document).ready(function() {
+    $('#electserviceNumber').focusout(function(e) {
+
+         $.ajax({
+            type: "POST",
+            url: 'api/elect.php',
+            data: $('#electricityBill').serialize(),
+            dataType: "json",
+            success: function(response) {
+                console.log(response);
+                swal({
+                    title: response.message, 
+                    text: 'Account Name = ' + response.data.name, 
+                    icon: response.status,
+                    timer: 3000,
+                    buttons: false,
+
+                });
+
+                $('#electamount').removeAttr('disabled');
+                }
+            
+        })
+        
+ 
+        
+    });
+
+         $('#third-tab').click(function(){
+         $.ajax({
+            type: "POST",
+            url: 'api/baxi.php',
+            data: { 
+            eid: 1, 
+            eids: 2
+           },
+            dataType: "json",
+            success: function(response) {
+                console.log(response.data.providers);
+                var len = response.data.providers.length;
+                 for (i = 0; i < len; i++) {
+                    var id = response.data.providers[i]['service_type'];
+                    var name = response.data.providers[i]['name'];
+                   
+                  $("#electricityBillop").append("<option value='"+id+"'>"  +name+  "</option>");
+                 }
+            
+        }
+        
+    });
+});
+    $('#electricityBill').submit(function(e) {
+         $.ajax({
+            type: "POST",
+            url: 'api/baxi.php',
+            data: $(this).serialize(),
+            dataType: "json",
+            success: function(response) {
+                console.log(response);
+                
+                 }
+            
+        })
+        
+    });
+
     $('#dthRechargeBill').submit(function(e) {
         e.preventDefault();
         $.ajax({

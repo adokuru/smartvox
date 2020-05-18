@@ -147,17 +147,11 @@
           ============================================= -->
           <div class="col-lg-4 mb-4 mb-lg-0">
             <h2 class="text-4 mb-3">Pay your Electricity Bill</h2>
-            <form id="cableTvRechargeBill" method="post">
+            <form id="electricityBill" method="post">
               <div class="form-group">
-                  <select class="custom-select" id="operator" required="">
-                    <option value="">Select Your Operator</option>
-                    <option>1st Operator</option>
-                    <option>2nd Operator</option>
-                    <option>3rd Operator</option>
-                    <option>4th Operator</option>
-                    <option>5th Operator</option>
-                    <option>6th Operator</option>
-                    <option>7th Operator</option>
+                  <select class="custom-select" id="electricityBillop"  name="electricityBillop" required="">
+                      <option value="" disabled selected>Select Your Operator</option>
+                    
                   </select>
                 </div>
               <div class="form-group">
@@ -469,5 +463,38 @@
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
 <script src="vendor/owl.carousel/owl.carousel.min.js"></script> 
 <script src="js/theme.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="api/callback.js"></script>
+ <script type="text/javascript">
+      $body = $("body");
+      $(document).on({
+            ajaxStart: function() { $body.addClass("loading");    },
+             ajaxStop: function() { $body.removeClass("loading"); }    
+        });
+  </script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $.ajax({
+            type: "POST",
+            url: 'api/baxi.php',
+            data: { 
+            eid: 1, 
+            eids: 2
+           },
+            dataType: "json",
+            success: function(response) {
+                console.log(response.data.providers);
+                var len = response.data.providers.length;
+                 for (i = 0; i < len; i++) {
+                    var id = response.data.providers[i]['service_type'];
+                    var name = response.data.providers[i]['name'];
+                   
+                  $("#electricityBillop").append("<option value='"+id+"'>"  +name+  "</option>");
+                 }
+            
+        }
+      });
+  });
+</script>
 </body>
 </html>

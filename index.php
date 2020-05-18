@@ -189,25 +189,18 @@
               <form id="electricityBill" method="post">
                 <div class="form-row">
                   <div class="col-md-6 col-lg-3 form-group">
-                    <select class="custom-select" required="">
-                      <option value="">Select Your Operator</option>
-                      <option>1st Operator</option>
-                      <option>2nd Operator</option>
-                      <option>3rd Operator</option>
-                      <option>4th Operator</option>
-                      <option>5th Operator</option>
-                      <option>6th Operator</option>
-                      <option>7th Operator</option>
+                    <select class="custom-select" id="electricityBillop" name="electricityBillop"required="">
+                      <option value="" disabled selected>Select Your Operator</option>
                     </select>
                   </div>
-                  <div class="col-md-6 col-lg-4 form-group">
-                    <input type="text" class="form-control" data-bv-field="number" id="serviceNumber" required placeholder="Enter Your Meter Number">
+                  <div class="col-md-6 col-lg-3 form-group">
+                    <input type="text" class="form-control" data-bv-field="number" id="electserviceNumber" name="electserviceNumber" required placeholder="Enter Your Meter Number">
                   </div>
                   <div class="col-md-6 col-lg-3 form-group">
-                    <input class="form-control" id="electricityamount" placeholder="Enter Amount" required type="text">
+                    <input disabled="" class="form-control" id="electamount" name="electamount" placeholder="Enter Amount" required type="text">
                   </div>
-                  <div class="col-md-6 col-lg-2 form-group">
-                    <button class="btn btn-primary btn-block" type="submit">Continue</button>
+                  <div class="col-md-6 col-lg-3 form-group">
+                    <button class="btn btn-primary btn-block" type="submit">Verify Account</button>
                   </div>
                 </div>
               </form>

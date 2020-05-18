@@ -1,4 +1,28 @@
 <?php 
+if (isset($_POST['eid'])) {
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, 'https://payments.baxipay.com.ng/api/baxipay/services/electricity/billers');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+
+
+	$headers = array();
+	$headers[] = 'Accept: */*';
+	$headers[] = 'X-Api-Key: 5adea9-044a85-708016-7ae662-646d59';
+	$headers[] = 'X-Csrf-Token: ';
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+	$result = curl_exec($ch);
+	if (curl_errno($ch)) {
+	    echo 'Error:' . curl_error($ch);
+	}
+	$json = $result;
+	$data = json_decode($json);
+	echo $result . PHP_EOL;
+	curl_close($ch);
+}
+
+
 
 if (isset($_POST['DTHamount'])) 
 	{

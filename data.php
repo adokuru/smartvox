@@ -468,6 +468,8 @@
 <script src="vendor/jquery/jquery.min.js"></script> 
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
 <script src="vendor/owl.carousel/owl.carousel.min.js"></script> 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="api/callback.js"></script>
 <script src="js/theme.js"></script>
  <script type="text/javascript">
       $body = $("body");
