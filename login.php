@@ -187,6 +187,7 @@
                 $row = mysqli_fetch_array($checkQ);
                 if ($row['password'] == $password) {
                   $_SESSION['userEmail'] = $row['email'];
+                   $_SESSION['phone'] = $row['mobile'];
                   header("location: profile.php");
                 }else{
                   echo "<div class='msg'>Mobile/Email ID and Password not Match</div>";

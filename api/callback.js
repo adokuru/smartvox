@@ -1,37 +1,32 @@
-
 $(document).ready(function() {
     $('#electserviceNumber').focusout(function(e) {
-
          $.ajax({
             type: "POST",
-            url: 'api/elect.php',
-            data: $('#electricityBill').serialize(),
+            url: 'api/recharge.php',
+            data: $('#electricityBill').serialize() + "&ename=1",
             dataType: "json",
-            error: function(xhr, status, error) {
-                alert(xhr.responseText);
-            },
             success: function(response) {
                  console.log(response.code);
                  if (response.code === 200) {
-                    if (response.data.name === "") {
-                        console.log(response);
-                        swal({
-                          icon: 'error',
-                          title: 'Oops... Something went wrong',
-                          text: 'Confirm your Meter Number!',
-                          footer: '<a href>Why do I have this issue?</a>'
-                        })
-                        $('#electamount').attr('disabled');
-                    }else{
-                    swal({
-                    title: response.message, 
-                    text: 'Account Name = ' + response.data.name, 
-                    icon: response.status,
-                    timer: 3000,
-                    buttons: false,
-                    });$('#electamount').removeAttr('disabled'); 
-                    }
-                   
+                        if (response.data.name === "") {
+                            console.log(response);
+                            swal({
+                              icon: 'error',
+                              title: 'Oops... Something went wrong',
+                              text: 'Confirm your Meter Number!',
+                              footer: '<a href>Why do I have this issue?</a>'
+                            })
+                            $('#electamount').attr('disabled');
+                        }else{
+                            console.log(response);
+                            swal({
+                            title: response.message, 
+                            text: 'Account Name = ' + response.data.name, 
+                            icon: response.status,
+                            timer: 3000,
+                            buttons: false,
+                            });$('#electamount').removeAttr('disabled'); 
+                            }
                     }else{
                         console.log(response);
                          swal({
@@ -44,10 +39,7 @@ $(document).ready(function() {
                  }
                 
             
-        })
-        
- 
-        
+        })    
     });
 
          $('#third-tab').click(function(){
@@ -60,7 +52,7 @@ $(document).ready(function() {
            },
             dataType: "json",
             success: function(response) {
-                console.log(response.data.providers);
+               
                 var len = response.data.providers.length;
                  for (i = 0; i < len; i++) {
                     var id = response.data.providers[i]['service_type'];
@@ -77,17 +69,13 @@ $(document).ready(function() {
          $.ajax({
             type: "POST",
             url: 'api/baxi.php',
-            data: $(this).serialize(),
+            data: $(this).serialize()+ "&ebill=1",
             dataType: "json",
             success: function(response) {
-                console.log(response);
-                
-                 }
-            
-        })
-        
+                console.log(response);               
+                 }            
+        })        
     });
-
     $('#dthRechargeBill').submit(function(e) {
         e.preventDefault();
         $.ajax({

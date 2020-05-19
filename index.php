@@ -1,5 +1,12 @@
 <?php
   include 'inc/conx.php';
+  
+  if (isset($_SESSION['phone'])) {
+     $phone = $_SESSION['phone'];
+
+  }else{
+  
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -195,12 +202,14 @@
                   </div>
                   <div class="col-md-6 col-lg-3 form-group">
                     <input type="text" class="form-control" data-bv-field="number" id="electserviceNumber" name="electserviceNumber" required placeholder="Enter Your Meter Number">
+                    <input type="hidden" class="form-control" data-bv-field="number" id="electphoneNumber" name="electphoneNumber" required placeholder="Enter Your phone Number" value="<?= $phone ?>">
                   </div>
+                  
                   <div class="col-md-6 col-lg-3 form-group">
                     <input disabled="" class="form-control" id="electamount" name="electamount" placeholder="Enter Amount" required type="text">
                   </div>
                   <div class="col-md-6 col-lg-3 form-group">
-                    <button class="btn btn-primary btn-block" type="submit">Verify Account</button>
+                    <button class="btn btn-primary btn-block" type="submit">Pay</button>
                   </div>
                 </div>
               </form>

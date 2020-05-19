@@ -1,4 +1,5 @@
 <?php 
+
 if (isset($_POST['eid'])) {
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, 'https://payments.baxipay.com.ng/api/baxipay/services/electricity/billers');
@@ -21,8 +22,6 @@ if (isset($_POST['eid'])) {
 	echo $result . PHP_EOL;
 	curl_close($ch);
 }
-
-
 
 if (isset($_POST['DTHamount'])) 
 	{
