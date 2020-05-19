@@ -1,4 +1,17 @@
 $(document).ready(function() {
+    $('#electricityBill').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: 'api/recharge.php',
+            data: $(this).serialize(),
+            dataType: "json",
+            success: function(response) {
+                console.log(response);               
+                 }            
+        });        
+    });
+
     $('#electserviceNumber').focusout(function(e) {
          $.ajax({
             type: "POST",
@@ -6,7 +19,7 @@ $(document).ready(function() {
             data: $('#electricityBill').serialize(),
             dataType: "json",
             success: function(response) {
-                 console.log(response.code);
+                
                  if (response.code === 200) {
                         if (response.data.name === "") {
                           
@@ -65,17 +78,8 @@ $(document).ready(function() {
         
     });
 });
-    $('#electricityBill').submit(function(e) {
-         $.ajax({
-            type: "POST",
-            url: 'api/baxi.php',
-            data: $(this).serialize()+ "&ebill=1",
-            dataType: "json",
-            success: function(response) {
-                console.log(response);               
-                 }            
-        })        
-    });
+
+
     $('#dthRechargeBill').submit(function(e) {
         e.preventDefault();
         $.ajax({
