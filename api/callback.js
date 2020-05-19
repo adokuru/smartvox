@@ -2,8 +2,8 @@ $(document).ready(function() {
     $('#electserviceNumber').focusout(function(e) {
          $.ajax({
             type: "POST",
-            url: 'api/recharge.php',
-            data: $('#electricityBill').serialize() + "&ename=1",
+            url: 'api/elect.php',
+            data: $('#electricityBill').serialize(),
             dataType: "json",
             success: function(response) {
                  console.log(response.code);

@@ -1,9 +1,12 @@
 <?php 
-if (isset($_POST['ename'])) {
+if (isset($_POST['electricityBillop'])) {
 		$account = $_POST['electserviceNumber'];
-		$code = $_POST['electricityBillop'];
-		$apibase = 'https://payments.baxipay.com.ng/api/baxipay/services/electricity/verify';
-		$url  = $apibase.'?service_type='.$code.'&account_number='.$account;
+		$service_type = $_POST['electricityBillop'];
+		$amount = $_POST['electamount'];
+		$phone = $_POST['electphoneNumber'];
+		$agentReference = 'Smartvox'.substr(str_shuffle(md5(time())), 0, 20);
+		$apibase = 'https://payments.baxipay.com.ng/api/baxipay/services/electricity/request';
+		$url  = $apibase.'?account_number='.$account.'&amount='.$amount;.'&phone='.$phone;.'&service_type='.$service_type.'&&agentId=212&agentReference='.$agentReference;;
 		$curl = curl_init();
 		// 1. Set the CURLOPT_RETURNTRANSFER option to true
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -29,4 +32,5 @@ if (isset($_POST['ename'])) {
 		$data = json_decode($json);
 		echo $result . PHP_EOL;
 }
+
  ?>
