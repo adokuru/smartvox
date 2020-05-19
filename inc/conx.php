@@ -3,8 +3,8 @@
 	session_start();
 	
 	define("host", "localhost");
-	define("user", "danoitec_david");
-	define("password", "davidadokuru123");
+	define("user", "root");
+	define("password", "");
 	define("dbase", "danoitec_smartbox");
 
 	$conx = mysqli_connect(host, user, password, dbase);
