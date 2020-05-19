@@ -9,7 +9,7 @@ $(document).ready(function() {
                  console.log(response.code);
                  if (response.code === 200) {
                         if (response.data.name === "") {
-                            console.log(response);
+                          
                             swal({
                               icon: 'error',
                               title: 'Oops... Something went wrong',
@@ -18,7 +18,7 @@ $(document).ready(function() {
                             })
                             $('#electamount').attr('disabled');
                         }else{
-                            console.log(response);
+                           
                             swal({
                             title: response.message, 
                             text: 'Account Name = ' + response.data.name, 
